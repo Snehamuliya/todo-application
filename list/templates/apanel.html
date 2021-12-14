@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'aheader.html' %}
+{% block content %}
+<h1>this is admin panel</h1>
+<h3>User details</h3>
+<table border="1">
+  <tr><th>id</th>
+  <th>Name</th>
+  <th>Email</th>
+  <th>Address</th>
+  <th>Mobile</th>
+  <th>username</th>
+  <th>password</th></tr>
+    {% for display in cdata %}
+  <tr>
+      <td>{{display.id}}</td>
+      <td>{{display.name}}</td>
+      <td>{{display.email}}</td>
+      <td>{{display.address}}</td>
+      <td>{{display.mobile}}</td>
+      <td>{{display.username}}</td>
+      <td>{{display.password}}</td>
+
+   <td>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{display.id}} name="da_del" hidden>
+        <input type="submit" value=" delete" name="del">
+    </form></td></tr>
+    {% endfor %}
+</table>
+
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

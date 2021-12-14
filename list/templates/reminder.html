@@ -1,0 +1,57 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="col-lg-5 mx-auto border rounded pt-4">
+
+      <h3 class="alert alert-light border rounded">Create Reminder</h3>
+
+<form method="post">
+    {% csrf_token %}
+
+
+              <div class="form-group">
+            <label for="example-text-input" class="col-form-label">Task <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input" placeholder="Task"  name="tas" required="">
+          </div>
+
+              <div class="form-group">
+            <label for="example-text-input1" class="col-form-label">Details <span class="star" style="color: red">*</span></label>
+                  <textarea colspan = "3" rowspan = "5" class="form-control form-control-sm" id="example-text-input1" name="det" required=""></textarea>
+          </div>
+
+                <div class="form-group">
+            <label for="example-text-input3" class="col-form-label"> Date <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="date" id="example-text-input3" placeholder="Email" name="start" required="">
+            </div>
+
+
+     <div class="form-group">
+            <label for="example-text-input6" class="col-form-label">Hour  <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="number" id="example-text-input6" placeholder="Mobile no"  name="htime" maxlength="12" required="">
+          </div>
+
+    <div class="form-group">
+            <label for="example-text-input7" class="col-form-label">Minute  <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="number" id="example-text-input7" placeholder="Mobile no"  name="mtime" maxlength="60" required="">
+          </div>
+
+
+   <div class="form-group">
+            <label for="example-text-input8" class="col-form-label">time  <span class="star" style="color: red">*</span></label>
+            <select class="form-control form-control-sm" id="example-text-input8" name="am">
+                <option value="am">am</option>
+                <option value="pm">pm</option>
+            </select>
+          </div>
+
+    <div class="form-group">
+            <input  type="submit" class="btn btn-primary" name="reminder" required="" onclick='<script>alert("Some Message.")</script>'>
+            </div>
+
+</form>
+    </div>
+</div>
+<br>
+{% include 'footer.html' %}
+{% endblock %}

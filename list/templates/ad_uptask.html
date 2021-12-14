@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update account</title>
+</head>
+<body>
+{% extends 'aheader.html' %}
+{% block content %}
+<div class="container">
+    <div class="col-lg-5 mx-auto border rounded pt-4">
+<h1>Admin Update Task</h1>
+<form method="post">
+        {% csrf_token %}
+        {% for display in result1 %}
+
+        <div class="form-group">
+            <input class="form-control form-control-sm" type="text"  value="{{display.id}}"  name="t_id" hidden>
+          </div>
+
+         <div class="form-group">
+            <label for="example-text-input1" class="col-form-label">Task<span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input1" value="{{display.task}}"  name="task" >
+          </div>
+
+             <div class="form-group">
+            <label for="example-text-input2" class="col-form-label">Task information <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input2" value="{{display.information}}"  name="info" >
+          </div>
+
+            <div class="form-group">
+            <label for="example-text-input3" class="col-form-label">Start date <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="date" id="example-text-input3" value="{{display.sdate}}"  name="start" >
+          </div>
+
+            <div class="form-group">
+            <label for="example-text-input4" class="col-form-label">End date <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="date" id="example-text-input4" value="{{display.edate}}"  name="end" >
+          </div>
+
+            <div class="form-group">
+            <label for="example-text-input5" class="col-form-label">Username <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input5" value="{{display.user}}" name="user" readonly>
+          </div>
+
+             <div class="form-group">
+            <label for="example-text-input6" class="col-form-label">Priority <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input6" value="{{display.priority}}"  name="prio" >
+          </div>
+
+    {% endfor %}
+
+    <input type="submit" name="up_task">
+</form>
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

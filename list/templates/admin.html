@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin account</title>
+</head>
+<body>
+{% extends 'header.html' %}
+{% block content %}
+    <h1 align="center">Admin login</h1>
+<div class="container">
+    <div class="col-lg-5 mx-auto border rounded pt-4">
+<form method="post">
+
+    {% csrf_token %}
+     <div class="form-group">
+            <label for="example-text-input4" class="col-form-label">Username <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input4" placeholder="Username"  name="uname" >
+          </div>
+
+     <div class="form-group">
+            <label for="example-text-input5" class="col-form-label">Password <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input5" placeholder="Password"  name="pass" >
+          </div>
+      {{emsg}}
+    <div class="form-group">
+            <input  type="submit" class="btn btn-primary" name="log" required="" onclick='<script>alert("Some Message.")</script>'>
+            </div>
+    </form>
+    </div>
+</div>
+<br><br>
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+</html>

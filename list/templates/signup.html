@@ -1,0 +1,61 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="col-lg-5 mx-auto border rounded pt-4">
+
+      <h3 class="alert alert-light border rounded" align="center">Create Account</h3>
+
+<form method="post">
+    {% csrf_token %}
+              {%if error%}
+
+          <div class = "alert alert-danger" role="alert">
+            {{error}}
+
+          </div>
+          {% endif %}
+
+
+              <div class="form-group">
+            <label for="example-text-input" class="col-form-label">first Name <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input" placeholder="Full name" pattern="([a-zA-Z] ?)+[a-zA-Z]"  name="fname" required="">
+          </div>
+
+              <div class="form-group">
+            <label for="example-text-input1" class="col-form-label">Address <span class="star" style="color: red">*</span></label>
+                  <textarea colspan = "3" rowspan = "5" class="form-control form-control-sm" id="example-text-input1" placeholder="address" name="add" required=""></textarea>
+          </div>
+
+                <div class="form-group">
+            <label for="example-text-input3" class="col-form-label"> Email <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input3" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email
+" name="mail" required="">
+            </div>
+
+
+     <div class="form-group">
+            <label for="example-text-input6" class="col-form-label">Mobile no  <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input6" placeholder="Mobile no" pattern="[7-9]{1}[0-9]{9}"  name="num" required="">
+          </div>
+
+     <div class="form-group">
+            <label for="example-text-input4" class="col-form-label">Username <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input4" placeholder="Username"  name="uname" >
+          </div>
+
+     <div class="form-group">
+            <label for="example-text-input5" class="col-form-label">Password <span class="star" style="color: red">*</span></label>
+            <input class="form-control form-control-sm" type="text" id="example-text-input5" placeholder="Password"  name="pass" >
+          </div>
+
+    <div class="form-group">
+            <input  type="submit" class="btn btn-primary" name="reg" required="" onclick='<script>alert("Some Message.")</script>'>
+            </div>
+
+</form>
+    </div>
+</div>
+<br>
+{% include 'footer.html' %}
+{% endblock %}

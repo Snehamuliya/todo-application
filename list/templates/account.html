@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+</head>
+<body>
+{% extends 'header.html' %}
+{% block content %}
+<br>
+<h1 align="center">User account</h1>
+<br>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr align="center"><th>User name</th>
+  <th>User email</th>
+  <th>User address</th>
+  <th>User mobile</th>
+  <th>User Password</th></tr>
+    {% for display in result %}
+  <tr>
+      <td>{{display.name}}</td>
+      <td>{{display.email}}</td>
+      <td>{{display.address}}</td>
+      <td>{{display.mobile}}</td>
+      <td>{{display.password}}</td></tr>
+    {% endfor %}
+</table>
+    </div>
+<br><br><br><br><br>
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+
+</html>

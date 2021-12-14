@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tasksview</title>
+</head>
+<body>
+{% extends 'aheader.html' %}
+{% block content %}
+<h1>hi {{ad_user}}</h1>
+<h1 align="center">Admin reminder view</h1>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr><th>task id</th>
+  <th>Task</th>
+  <th>Task information</th>
+  <th>Reminder date</th>
+  <th>Hour</th>
+  <th>Minute</th>
+  <th>Zone</th>
+  <th>User</th>
+  <th>Action</th></tr>
+    {% for view in result1 %}
+  <tr>
+      <td>{{view.id}}</td>
+      <td>{{view.task}}</td>
+      <td>{{view.information}}</td>
+      <td>{{view.remdate}}</td>
+      <td>{{view.hour}}</td>
+      <td>{{view.minute}}</td>
+      <td>{{view.zone}}</td>
+      <td>{{view.username}}</td>
+       <td>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="re_del" hidden>
+        <input type="submit" value=" delete" name="del">
+    </form></td>
+    <td> <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="re_upd" hidden>
+        <input type="submit" value="update" name="upd">
+        </form></td></tr>
+    {% endfor %}
+</table>
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tasksview</title>
+</head>
+<body>
+{% extends 'header.html' %}
+{% block content %}
+<h1 align="center">Task view</h1>
+<div class="container-fluid">
+<table class="table table-bordered">
+  <tr><th>task id</th>
+  <th>Task name</th>
+  <th>Start date</th>
+    <th>End date</th>
+  <th>Task information</th>
+    <th>Priority</th>
+  <th>User</th>
+  <th>Action</th></tr>
+    {% for view in result1 %}
+  <tr>
+      <td>{{view.id}}</td>
+      <td>{{view.task}}</td>
+      <td>{{view.sdate}}</td>
+      <td>{{view.edate}}</td>
+      <td>{{view.information}}</td>
+      <td>{{view.priority}}</td>
+      <td>{{view.user}}</td>
+       <td>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="ta_del" hidden>
+        <input type="submit" value=" delete" name="del">
+    </form></td>
+    <td> <form method="post">
+        {% csrf_token %}
+        <input type="text" value={{view.id}} name="ta_upd" hidden>
+        <input type="submit" value="update" name="upd">
+        </form></td></tr>
+    {% endfor %}
+</table>
+</div>
+{% include 'footer.html' %}
+{% endblock %}
+</body>
+
+</html>
